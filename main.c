@@ -40,18 +40,21 @@ void saveOrders(Order orders[], int count);
 void loadOrders(Order orders[], int *count);
 void saveOther(Other others[], int count);
 void loadOther(Other others[], int *count);
+void displayMenu() {
+    printf("\nDairy Farm Production System\n");
+    printf("1. Add Cow Production\n");
+    printf("2. View Cow Production\n");
+    printf("3. Add Order\n");
+    printf("4. View Orders\n");
+    printf("5. Add Other Data (Dairy/Shop/Home)\n");
+    printf("6. View Other Data\n");
+    printf("7. Exit\n");
+}
 
 int main() {
     int choice;
     do {
-        printf("\nDairy Farm Production System\n");
-        printf("1. Add Cow Production\n");
-        printf("2. View Cow Production\n");
-        printf("3. Add Order\n");
-        printf("4. View Orders\n");
-        printf("5. Add Other Data (Dairy/Shop/Home)\n");
-        printf("6. View Other Data\n");
-        printf("7. Exit\n");
+      displayMenu()
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
