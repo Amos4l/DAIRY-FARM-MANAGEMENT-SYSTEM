@@ -53,13 +53,40 @@ void displayMenu() {
     printf("7. Exit\n");
 }
 
+//Menu Input Validation
+int getMenuChoice(int min, int max) {
+
+    int value;
+
+    while (1) {
+
+        printf("Enter your choice: ");
+
+        if (scanf("%d", &value) != 1) {
+
+            printf("Invalid input! Please enter a number.\n");
+
+            while (getchar() != '\n');  // flush input
+
+        } else if (value < min || value > max) {
+
+            printf("Choice must be between %d and %d. Try again.\n", min, max);
+
+        } else {
+
+            return value;  // valid input
+
+        }
+
+    }
+
+}
+
 int main() {
     int choice;
     do {
       displayMenu()
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
+       choice = getMenuChoice(1,7);
         switch (choice) {
             case 1:
                 addCow();
@@ -83,7 +110,6 @@ int main() {
                 printf("Exiting...\n");
                 break;
             default:
-                printf("Invalid choice! Try again.\n");
         }
     } while (choice != 7);
 
