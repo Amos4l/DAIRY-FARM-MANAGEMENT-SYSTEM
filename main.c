@@ -85,7 +85,7 @@ int getMenuChoice(int min, int max) {
 int main() {
     int choice;
     do {
-      displayMenu()
+      displayMenu();
        choice = getMenuChoice(1,7);
         switch (choice) {
             case 1:
