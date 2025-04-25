@@ -40,6 +40,8 @@ void saveOrders(Order orders[], int count);
 void loadOrders(Order orders[], int *count);
 void saveOther(Other others[], int count);
 void loadOther(Other others[], int *count);
+
+//Display Menu
 void displayMenu() {
     printf("\nDairy Farm Production System\n");
     printf("1. Add Cow Production\n");
