@@ -41,20 +41,52 @@ void loadOrders(Order orders[], int *count);
 void saveOther(Other others[], int count);
 void loadOther(Other others[], int *count);
 
+//Display Menu
+void displayMenu() {
+    printf("\nDairy Farm Production System\n");
+    printf("1. Add Cow Production\n");
+    printf("2. View Cow Production\n");
+    printf("3. Add Order\n");
+    printf("4. View Orders\n");
+    printf("5. Add Other Data (Dairy/Shop/Home)\n");
+    printf("6. View Other Data\n");
+    printf("7. Exit\n");
+}
+
+//Menu Input Validation
+int getMenuChoice(int min, int max) {
+
+    int value;
+
+    while (1) {
+
+        printf("Enter your choice: ");
+
+        if (scanf("%d", &value) != 1) {
+
+            printf("Invalid input! Please enter a number.\n");
+
+            while (getchar() != '\n');  // flush input
+
+        } else if (value < min || value > max) {
+
+            printf("Choice must be between %d and %d. Try again.\n", min, max);
+
+        } else {
+
+            return value;  // valid input
+
+        }
+
+    }
+
+}
+
 int main() {
     int choice;
     do {
-        printf("\nDairy Farm Production System\n");
-        printf("1. Add Cow Production\n");
-        printf("2. View Cow Production\n");
-        printf("3. Add Order\n");
-        printf("4. View Orders\n");
-        printf("5. Add Other Data (Dairy/Shop/Home)\n");
-        printf("6. View Other Data\n");
-        printf("7. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
+      displayMenu();
+       choice = getMenuChoice(1,7);
         switch (choice) {
             case 1:
                 addCow();
@@ -78,7 +110,6 @@ int main() {
                 printf("Exiting...\n");
                 break;
             default:
-                printf("Invalid choice! Try again.\n");
         }
     } while (choice != 7);
 
